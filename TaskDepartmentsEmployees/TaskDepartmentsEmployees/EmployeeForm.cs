@@ -42,7 +42,6 @@ namespace TaskDepartmentsEmployees
                 AddEmployee();
             else
                 UpdateEmployee();
-
         }
 
         private void FillDropDown()
@@ -156,7 +155,7 @@ namespace TaskDepartmentsEmployees
             {
                 IsValid = false;
                 txtFirstName.BackColor = Color.Pink;
-                lblFirstNameRequired.Text = "Укажите имя!";
+                lblFirstNameError.Text = "Укажите имя!";
             }
 
             if (txtFirstName.Text.Length >= 50)
@@ -170,7 +169,7 @@ namespace TaskDepartmentsEmployees
             {
                 IsValid = false;
                 txtLastName.BackColor = Color.Pink;
-                lblLastNameRequired.Text = "Укажите фамилию!";
+                lblLastNameError.Text = "Укажите фамилию!";
             }
 
             if (txtLastName.Text.Length >= 50)
@@ -188,25 +187,44 @@ namespace TaskDepartmentsEmployees
                 lblPatronymicError.Text = "Слишком длинное отчество!";
             }
 
-            if (txtDocSeries.Text != "" && txtDocSeries.Text.Length != 4)
-            {
-                IsValid = false;
-                txtDocSeries.BackColor = Color.Pink;
-                lblDocSeriesError.Text = "Серия документа должна состоять из 4 символов!";
+            if (txtDocSeries.Text != "")
+            {               
+                if (!IsNumber(txtDocSeries.Text))
+                {
+                    IsValid = false;
+                    txtDocSeries.BackColor = Color.Pink;
+                    lblDocSeriesError.Text = "Допускаются только числа";
+                }                    
+                else if (txtDocSeries.Text.Length != 4)
+                {
+                    IsValid = false;
+                    txtDocSeries.BackColor = Color.Pink;
+                    lblDocSeriesError.Text = "Серия документа должна состоять из 4 символов!";
+                }                   
             }
 
-            if (txtDocNumber.Text != "" && txtDocNumber.Text.Length != 6)
-            {
-                IsValid = false;
-                txtDocNumber.BackColor = Color.Pink;
-                lblDocNumberError.Text = "Номер документа должен состоять из 6 символов!";
+            if (txtDocNumber.Text != "")
+            {                
+                if (!IsNumber(txtDocNumber.Text))
+                {
+                    IsValid = false;
+                    txtDocNumber.BackColor = Color.Pink;
+                    lblDocNumberError.Text = "Допускаются только числа";
+                }
+                    
+                else if (txtDocNumber.Text.Length != 6)
+                {
+                    IsValid = false;
+                    txtDocNumber.BackColor = Color.Pink;
+                    lblDocNumberError.Text = "Номер документа должен состоять из 6 символов!";
+                }                    
             }
 
             if (txtPosition.Text == "")
             {
                 IsValid = false;
                 txtPosition.BackColor = Color.Pink;
-                lblPositionRequired.Text = "Укажите должность!";
+                lblPositionError.Text = "Укажите должность!";
             }
 
             if (txtPosition.Text.Length >= 50)
@@ -234,14 +252,14 @@ namespace TaskDepartmentsEmployees
 
         private void Clear()
         {
-            lblFirstNameError.Text = lblLastNameError.Text = lblPatronymicError.Text
-                = lblDocSeriesError.Text = lblDocNumberError.Text = lblPositionError.Text
-                = lblDateOfBirthError.Text = lblFirstNameRequired.Text
-                = lblLastNameRequired.Text = lblPositionRequired.Text = "";
-
-            txtFirstName.BackColor = txtLastName.BackColor = txtPatronymic.BackColor
-                = txtDocSeries.BackColor = txtDocNumber.BackColor = txtPosition.BackColor 
-                = lblDateOfBirthError.BackColor = Color.White;
+            ClearField(txtFirstName, lblFirstNameError);
+            ClearField(txtLastName, lblLastNameError);
+            ClearField(txtPatronymic, lblPatronymicError);
+            lblDateOfBirthError.Text = "";
+            lblDateOfBirthError.BackColor = Color.White;
+            ClearField(txtDocSeries, lblDocSeriesError);
+            ClearField(txtDocNumber, lblDocNumberError);
+            ClearField(txtPosition, lblPositionError);
         }
 
         private void EmployeeForm_FormClosed(object sender, FormClosingEventArgs e)
@@ -250,21 +268,20 @@ namespace TaskDepartmentsEmployees
             Clear();
         }
 
-        private void ClearField(TextBox textbox, params Label[] labels)
+        private void ClearField(TextBox textbox, Label label)
         {
             textbox.BackColor = Color.White;
-            foreach (var label in labels)
-                label.Text = "";
+            label.Text = "";
         }
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
-            ClearField(txtFirstName, lblFirstNameError, lblFirstNameRequired);
+            ClearField(txtFirstName, lblFirstNameError);
         }
 
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
-            ClearField(txtLastName, lblLastNameError, lblLastNameRequired);
+            ClearField(txtLastName, lblLastNameError);
         }
 
         private void txtPatronymic_TextChanged(object sender, EventArgs e)
@@ -284,13 +301,18 @@ namespace TaskDepartmentsEmployees
 
         private void txtPosition_TextChanged(object sender, EventArgs e)
         {
-            ClearField(txtPosition, lblPositionError, lblPositionRequired);
+            ClearField(txtPosition, lblPositionError);
         }
 
         private void dtpDateOfBirth_DropDown(object sender, EventArgs e)
         {
             lblDateOfBirthError.BackColor = Color.White;
             lblDateOfBirthError.Text = "";
+        }
+
+        private bool IsNumber(string s)
+        {
+            return s.All(char.IsDigit);
         }
     }
 }

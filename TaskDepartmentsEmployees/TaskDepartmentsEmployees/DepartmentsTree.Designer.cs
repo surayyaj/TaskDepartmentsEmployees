@@ -30,9 +30,11 @@
         {
             this.DepartmentsTreeView = new System.Windows.Forms.TreeView();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.btnNewEmployee = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +42,6 @@
             this.DocNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewEmployee = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,8 +60,8 @@
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.FirstName,
             this.LastName,
+            this.FirstName,
             this.Patronymic,
             this.DateOfBirth,
             this.Age,
@@ -76,6 +76,25 @@
             this.dgvEmployees.TabIndex = 1;
             this.dgvEmployees.DoubleClick += new System.EventHandler(this.dgvEmployees_DoubleClick);
             // 
+            // btnNewEmployee
+            // 
+            this.btnNewEmployee.Location = new System.Drawing.Point(71, 385);
+            this.btnNewEmployee.Name = "btnNewEmployee";
+            this.btnNewEmployee.Size = new System.Drawing.Size(133, 23);
+            this.btnNewEmployee.TabIndex = 2;
+            this.btnNewEmployee.Text = "Добавить сотрудника";
+            this.btnNewEmployee.UseVisualStyleBackColor = true;
+            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 428);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(280, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Кликните дважды по сотруднику для редактирования\r\n";
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -84,19 +103,19 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "Имя";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
             // LastName
             // 
             this.LastName.DataPropertyName = "LastName";
             this.LastName.HeaderText = "Фамилия";
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "Имя";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
             // 
             // Patronymic
             // 
@@ -147,25 +166,6 @@
             this.Department.Name = "Department";
             this.Department.ReadOnly = true;
             // 
-            // btnNewEmployee
-            // 
-            this.btnNewEmployee.Location = new System.Drawing.Point(71, 385);
-            this.btnNewEmployee.Name = "btnNewEmployee";
-            this.btnNewEmployee.Size = new System.Drawing.Size(133, 23);
-            this.btnNewEmployee.TabIndex = 2;
-            this.btnNewEmployee.Text = "Добавить сотрудника";
-            this.btnNewEmployee.UseVisualStyleBackColor = true;
-            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 428);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Кликните дважды по сотруднику для редактирования\r\n";
-            // 
             // DepartmentsTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,9 +188,11 @@
 
         private System.Windows.Forms.TreeView DepartmentsTreeView;
         private System.Windows.Forms.DataGridView dgvEmployees;
+        private System.Windows.Forms.Button btnNewEmployee;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patronymic;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
@@ -198,7 +200,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DocNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position;
         private System.Windows.Forms.DataGridViewTextBoxColumn Department;
-        private System.Windows.Forms.Button btnNewEmployee;
-        private System.Windows.Forms.Label label1;
     }
 }

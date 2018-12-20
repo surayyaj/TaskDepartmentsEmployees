@@ -54,9 +54,6 @@
             this.lblDocNumberError = new System.Windows.Forms.Label();
             this.lblPositionError = new System.Windows.Forms.Label();
             this.lblDateOfBithError = new System.Windows.Forms.Label();
-            this.lblFirstNameRequired = new System.Windows.Forms.Label();
-            this.lblLastNameRequired = new System.Windows.Forms.Label();
-            this.lblPositionRequired = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPosition
@@ -279,38 +276,11 @@
             this.lblDateOfBithError.Size = new System.Drawing.Size(0, 13);
             this.lblDateOfBithError.TabIndex = 40;
             // 
-            // lblFirstNameRequired
-            // 
-            this.lblFirstNameRequired.AutoSize = true;
-            this.lblFirstNameRequired.Location = new System.Drawing.Point(349, 53);
-            this.lblFirstNameRequired.Name = "lblFirstNameRequired";
-            this.lblFirstNameRequired.Size = new System.Drawing.Size(0, 13);
-            this.lblFirstNameRequired.TabIndex = 41;
-            // 
-            // lblLastNameRequired
-            // 
-            this.lblLastNameRequired.AutoSize = true;
-            this.lblLastNameRequired.Location = new System.Drawing.Point(349, 112);
-            this.lblLastNameRequired.Name = "lblLastNameRequired";
-            this.lblLastNameRequired.Size = new System.Drawing.Size(0, 13);
-            this.lblLastNameRequired.TabIndex = 42;
-            // 
-            // lblPositionRequired
-            // 
-            this.lblPositionRequired.AutoSize = true;
-            this.lblPositionRequired.Location = new System.Drawing.Point(349, 366);
-            this.lblPositionRequired.Name = "lblPositionRequired";
-            this.lblPositionRequired.Size = new System.Drawing.Size(0, 13);
-            this.lblPositionRequired.TabIndex = 43;
-            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 579);
-            this.Controls.Add(this.lblPositionRequired);
-            this.Controls.Add(this.lblLastNameRequired);
-            this.Controls.Add(this.lblFirstNameRequired);
             this.Controls.Add(this.lblDateOfBithError);
             this.Controls.Add(this.lblPositionError);
             this.Controls.Add(this.lblDocNumberError);
@@ -374,8 +344,5 @@
         private System.Windows.Forms.Label lblDocNumberError;
         private System.Windows.Forms.Label lblPositionError;
         private System.Windows.Forms.Label lblDateOfBithError;
-        private System.Windows.Forms.Label lblFirstNameRequired;
-        private System.Windows.Forms.Label lblLastNameRequired;
-        private System.Windows.Forms.Label lblPositionRequired;
     }
 }
